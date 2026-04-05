@@ -170,7 +170,6 @@ button:hover { box-shadow: 0 0 15px #d4af37; }
 
   <iframe name="hidden_iframe" style="display:none;"></iframe>
   <p id="error" class="text-red-600 hidden">You may only select up to 2 per category.</p>
-  <p id="confirmation" class="text-green-700 hidden">Your vote has been sealed ✨</p>
 </div>
 
 <script>
@@ -202,12 +201,6 @@ function limitCheckboxes(className) {
 limitCheckboxes('junior');
 limitCheckboxes('senior');
 
-// Show confirmation after submission
-document.getElementById('voteForm').addEventListener('submit', () => {
-  setTimeout(() => {
-    document.getElementById('confirmation').classList.remove('hidden');
-  }, 500);
-});
 </script>
 
 </body>
