@@ -168,7 +168,6 @@ button:hover { box-shadow: 0 0 15px #d4af37; }
     </div>
   </form>
 
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
   <p id="error" class="text-red-600 hidden">You may only select up to 2 per category.</p>
 </div>
 
@@ -192,8 +191,6 @@ function limitCheckboxes(className) {
       if (checked.length > 2) {
         box.checked = false;
         document.getElementById('error').classList.remove('hidden');
-      } else {
-        document.getElementById('error').classList.add('hidden');
       }
     });
   });
