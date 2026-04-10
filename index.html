@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Prom Court Voting</title>
 <script src="https://cdn.tailwindcss.com"></script>
-  
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
@@ -13,33 +13,24 @@ body {
   font-family: 'Playfair Display', serif;
   background: radial-gradient(circle at top, #1a1a1a, #000);
   color: #f5e6c8;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
 }
 
 .gold { color: #d4af37; }
 
-/* ENVELOPE */
 .envelope {
-  width: 80vw;
-  max-width: 320px;
-  height: 50vw;
-  max-height: 200px;
+  width: 320px;
+  height: 200px;
   background: linear-gradient(145deg, #e8d8a8, #d6c089);
   position: relative;
   border-radius: 6px;
   box-shadow: 0 0 40px rgba(212,175,55,0.25);
-  margin: 2rem auto;
 }
 
-/* FLAP */
 .flap {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 25vw;
-  max-height: 100px;
+  height: 100px;
   background: linear-gradient(145deg, #d9c48a, #cbb070);
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top;
@@ -48,12 +39,9 @@ body {
 
 .open .flap { transform: rotateX(180deg); }
 
-/* SEAL */
 .seal {
-  width: 15vw;
-  max-width: 60px;
-  height: 15vw;
-  max-height: 60px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   position: absolute;
   top: 60%;
@@ -66,65 +54,53 @@ body {
   align-items: center;
   justify-content: center;
   transition: transform 0.25s ease;
-  touch-action: manipulation;
 }
 
 .seal::before {
   content: "♛";
-  font-size: 8vw;
-  max-font-size: 22px;
+  font-size: 22px;
   color: rgba(0,0,0,0.7);
 }
 
-/* TOUCH-friendly scaling */
-.seal:active {
+.seal:hover {
   transform: translate(-50%, -50%) scale(1.2);
 }
 
-/* CRACK */
 .crack { animation: crack 0.5s forwards; }
+
 @keyframes crack {
   50% { transform: translate(-50%, -50%) scale(1.3) rotate(8deg); }
   100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
 }
 
-/* LETTER */
 .letter {
   background: #fdf6e3;
   color: #1a1a1a;
-  padding: 5vw;
+  padding: 30px;
   border-radius: 10px;
-  max-width: 90vw;
-  margin: 2rem auto;
+  max-width: 600px;
+  margin: auto;
   display: none;
   box-shadow: 0 0 50px rgba(212,175,55,0.2);
   transform: translateY(50px);
-  font-size: 4vw;
 }
 
-.show-letter { display: block; animation: slideUp 1s ease forwards; }
-@keyframes slideUp { to { transform: translateY(0); opacity: 1; } }
+.show-letter {
+  display: block;
+  animation: slideUp 1s ease forwards;
+}
 
-/* INPUTS & BUTTONS */
-input, button {
-  font-size: 4vw;
+@keyframes slideUp {
+  to { transform: translateY(0); opacity: 1; }
 }
-input { border-bottom: 1px solid #d4af37; background: transparent; width: 100%; padding: 1vw 0; }
-button {
-  padding: 2vw 4vw;
-}
+
+input { border-bottom: 1px solid #d4af37; background: transparent; }
 button:hover { box-shadow: 0 0 15px #d4af37; }
 
-/* ERROR/CONFIRMATION */
-#error, #confirmation {
-  font-size: 4vw;
-  margin-top: 2vw;
-  text-align: center;
-}
 </style>
 </head>
 
-<body>
+<body class="flex items-center justify-center min-h-screen">
 
 <div id="envelope" class="envelope relative">
   <div class="flap"></div>
@@ -133,78 +109,36 @@ button:hover { box-shadow: 0 0 15px #d4af37; }
 
 <div id="letter" class="letter">
   <h1 class="text-3xl mb-4 gold text-center">An Invitation to Vote</h1>
+
   <p class="mb-4">Esteemed Guest,</p>
   <p class="mb-6">You are cordially invited to cast your vote for this year's Prom Court.</p>
 
-  <!-- GOOGLE FORM (hidden submission via iframe for mobile) -->
-  <form id="voteForm" action="https://docs.google.com/forms/d/e/1FAIpQLScExsky7uQSMPfgYknKsKbwNzPp2uGIiPo8frwwQx0FDUC7hQ/formResponse">
+  <!-- FIXED submission: use redirect method (MOST RELIABLE) -->
+  <form id="voteForm" action="https://docs.google.com/forms/d/e/1VYngADLeK759QC3o45qAzBwydGtpn90WUw9IqQ34K8E/formResponse">
+
     <input type="hidden" name="submit" value="Submit">
-    
+
     <div class="mb-6">
       <label>Name:</label><br>
-      <input type="text" name="entry.299242863" required>
+      <input type="text" name="entry.299242863" required class="w-full" />
     </div>
 
     <div class="mb-6">
       <label>Junior Prom Court (max 2):</label><br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Adrian Schneider"> Adrian Schneider<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Ana Artz"> Ana Artz<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Alana Santiago"> Alana Santiago<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Amari Dixon"> Amari Dixon<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Cadence Scheunemann"> Cadence Scheunemann<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Charlotte Lin"> Charlotte Lin<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Ellie Rosch"> Ellie Rosch<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Finn Niesen-Davis"> Finn Niesen-Davis<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Harmony Lehman"> Harmony Lehman<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Henry Guan"> Henry Guan<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Irene Kim"> Irene Kim<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Kabir Thirodira"> Kabir Thirodira<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Lily Rowell"> Lily Rowell<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Lucas Tosi"> Lucas Tosi<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Matthew Davidson"> Matthew Davidson<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Penelope Renie"> Penelope Renie<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Robenas Tadesse"> Robenas Tadesse<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Ruby Ballesteros"> Ruby Ballesteros<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Ruijing Tang"> Ruijing Tang<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Sarah Bolton"> Sarah Bolton<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Shanna Nayely Duay"> Shanna Nayely Duay<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Shreya Haran"> Shreya Haran<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Sophie La Nave"> Sophie La Nave<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Yixin Jemina Feng"> Yixin Jemina Feng<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Yuto Inoue"> Yuto Inoue<br>
-      <input type="checkbox" class="junior" name="entry.1881069584" value="Zoe Parker"> Zoe Parker<br>
-    </div>
+      <div class="space-y-2">
+        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Adrian Schneider"> <span>Adrian Schneider</span></label>
+        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Ana Artz"> <span>Ana Artz</span></label>
+        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Alana Santiago"> <span>Alana Santiago</span></label>
+        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Amari Dixon"> <span>Amari Dixon</span></label>
+        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Cadence Scheunemann"> <span>Cadence Scheunemann</span></label>
+        <label class="flex it
 
     <div class="mb-6">
       <label>Senior Prom Court (max 2):</label><br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Adam Bobat"> Adam Bobat<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Aldo Zepeda Flores"> Aldo Zepeda Flores<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Alyssa Neubauer"> Alyssa Neubauer<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Annika Deschler"> Annika Deschler<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Ashton Ribeiro Hetherington"> Ashton Ribeiro Hetherington<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Cali Cooper"> Cali Cooper<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Carla Lopez"> Carla Lopez<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Chizara Onyemere"> Chizara Onyemere<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Chloe Noronha-Hostler"> Chloe Noronha-Hostler<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Chloe Robberts-Mosser"> Chloe Robberts-Mosser<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Citlali Rundall Madrigal"> Citlali Rundall Madrigal<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Ella Ylagan"> Ella Ylagan<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Emmie Vargas"> Emmie Vargas<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Eve Anderson"> Eve Anderson<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Helen Fu"> Helen Fu<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Ian Pan"> Ian Pan<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Jaewoo Park"> Jaewoo Park<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Jason Yan"> Jason Yan<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Julia Smith"> Julia Smith<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Kyler Abdelzaher"> Kyler Abdelzaher<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Lana Cooper"> Lana Cooper<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Olly Earls"> Olly Earls<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Praachi Mudar"> Praachi Mudar<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Renee Wang"> Renee Wang<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Saif Shakir"> Saif Shakir<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Sandaru Devmal"> Sandaru Devmal<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Simrah Khan"> Simrah Khan<br>
-      <input type="checkbox" class="senior" name="entry.1457775683" value="Will Miller"> Will Miller<br>
+      <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Option 1"> <span>Option 1</span></label>
+      <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Option 2"> <span>Option 2</span></label>
+      <input type="checkbox" class="senior" name="entry.1457775683" value="Option 3"> Option 3<br>
+      <input type="checkbox" class="senior" name="entry.1457775683" value="Option 4"> Option 4<br>
     </div>
 
     <div class="text-center mt-8">
@@ -214,7 +148,7 @@ button:hover { box-shadow: 0 0 15px #d4af37; }
     </div>
   </form>
 
-  <p id="error" class="text-red-600 hidden">You may only select up to 2 per category.</p>
+  <p id="error" class="text-red-600 mt-4 hidden text-center">You may only select up to 2 per category.</p>
 </div>
 
 <script>
@@ -225,10 +159,13 @@ const letter = document.getElementById('letter');
 seal.addEventListener('click', () => {
   seal.classList.add('crack');
   envelope.classList.add('open');
-  setTimeout(() => { letter.classList.add('show-letter'); }, 700);
+
+  setTimeout(() => {
+    letter.classList.add('show-letter');
+  }, 700);
 });
 
-// Limit max 2 per category
+// HARD LIMIT CHECK (max 2)
 function limitCheckboxes(className) {
   const boxes = document.querySelectorAll('.' + className);
   boxes.forEach(box => {
@@ -241,6 +178,7 @@ function limitCheckboxes(className) {
     });
   });
 }
+
 limitCheckboxes('junior');
 limitCheckboxes('senior');
 
