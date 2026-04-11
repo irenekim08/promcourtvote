@@ -13,25 +13,30 @@ body {
   font-family: 'Playfair Display', serif;
   background: radial-gradient(circle at top, #1a1a1a, #000);
   color: #f5e6c8;
+  margin: 0;
+  padding: 20px 0;
 }
 
 .gold { color: #d4af37; }
 
 .envelope {
   z-index: 1;
-  width: 320px;
-  height: 200px;
+  width: 80vw;
+  max-width: 320px;
+  height: 50vw;
+  max-height: 200px;
   background: linear-gradient(145deg, #e8d8a8, #d6c089);
   position: relative;
   border-radius: 6px;
   box-shadow: 0 0 40px rgba(212,175,55,0.25);
+  margin: -40px auto 0 auto; /* sits under letter */
 }
 
 .flap {
   position: absolute;
   top: 0;
   width: 100%;
-  height: 100px;
+  height: 50%;
   background: linear-gradient(145deg, #d9c48a, #cbb070);
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top;
@@ -41,8 +46,10 @@ body {
 .open .flap { transform: rotateX(180deg); }
 
 .seal {
-  width: 60px;
-  height: 60px;
+  width: 18vw;
+  max-width: 60px;
+  height: 18vw;
+  max-height: 60px;
   border-radius: 50%;
   position: absolute;
   top: 60%;
@@ -63,7 +70,7 @@ body {
   color: rgba(0,0,0,0.7);
 }
 
-.seal:hover {
+.seal:active {
   transform: translate(-50%, -50%) scale(1.2);
 }
 
@@ -79,10 +86,10 @@ body {
   z-index: 2;
   background: #fdf6e3;
   color: #1a1a1a;
-  padding: 30px;
+  padding: 5vw;
   border-radius: 10px;
-  max-width: 600px;
-  margin: auto;
+  max-width: 90vw;
+  margin: 0 auto;
   display: none;
   box-shadow: 0 0 50px rgba(212,175,55,0.2);
   transform: translateY(50px);
@@ -103,20 +110,15 @@ button:hover { box-shadow: 0 0 15px #d4af37; }
 </style>
 </head>
 
-<body class="flex items-center justify-center min-h-screen">
+<body>
 
-<div id="envelope" class="envelope relative">
-  <div class="flap"></div>
-  <div id="seal" class="seal"></div>
-</div>
-
+<!-- LETTER FIRST -->
 <div id="letter" class="letter">
   <h1 class="text-3xl mb-4 gold text-center">An Invitation to Vote</h1>
 
   <p class="mb-4">Esteemed Guest,</p>
   <p class="mb-6">You are cordially invited to cast your vote for this year's Prom Court.</p>
 
-  <!-- FIXED submission: use redirect method (MOST RELIABLE) -->
   <form id="voteForm" action="https://docs.google.com/forms/d/e/1VYngADLeK759QC3o45qAzBwydGtpn90WUw9IqQ34K8E/formResponse">
 
     <input type="hidden" name="submit" value="Submit">
@@ -124,72 +126,6 @@ button:hover { box-shadow: 0 0 15px #d4af37; }
     <div class="mb-6">
       <label>Name:</label><br>
       <input type="text" name="entry.299242863" required class="w-full" />
-    </div>
-
-    <div class="mb-6">
-      <label>Junior Prom Court (max 2):</label><br>
-      <div class="space-y-2">
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Adrian Schneider"> <span>Adrian Schneider</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Ana Artz"> <span>Ana Artz</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Alana Santiago"> <span>Alana Santiago</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Amari Dixon"> <span>Amari Dixon</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Cadence Scheunemann"> <span>Cadence Scheunemann</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Charlotte Lin"> <span>Charlotte Lin</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Ellie Rosch"> <span>Ellie Rosch</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Finn Niesen-Davis"> <span>Finn Niesen-Davis</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Harmony Lehman"> <span>Harmony Lehman</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Henry Guan"> <span>Henry Guan</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Irene Kim"> <span>Irene Kim</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Kabir Thirodira"> <span>Kabir Thirodira</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Lily Rowell"> <span>Lily Rowell</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Lucas Tosi"> <span>Lucas Tosi</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Matthew Davidson"> <span>Matthew Davidson</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Penelope Renie"> <span>Penelope Renie</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Robenas Tadesse"> <span>Robenas Tadesse</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Ruby Ballesteros"> <span>Ruby Ballesteros</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Ruijing Tang"> <span>Ruijing Tang</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Sarah Bolton"> <span>Sarah Bolton</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Shanna Nayely Duay"> <span>Shanna Nayely Duay</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Shreya Haran"> <span>Shreya Haran</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Sophie La Nave"> <span>Sophie La Nave</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Yixin Jemina Feng"> <span>Yixin Jemina Feng</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Yuto Inoue"> <span>Yuto Inoue</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Zoe Parker"> <span>Zoe Parker</span></label>
-      </div>
-    </div>
-
-    <div class="mb-6">
-      <label>Senior Prom Court (max 2):</label><br>
-      <div class="space-y-2">
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Adam Bobat"> <span>Adam Bobat</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Aldo Zepeda Flores"> <span>Aldo Zepeda Flores</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Alyssa Neubauer"> <span>Alyssa Neubauer</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Annika Deschler"> <span>Annika Deschler</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Ashton Ribeiro Hetherington"> <span>Ashton Ribeiro Hetherington</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Cali Cooper"> <span>Cali Cooper</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Carla Lopez"> <span>Carla Lopez</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Chizara Onyemere"> <span>Chizara Onyemere</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Chloe Noronha-Hostler"> <span>Chloe Noronha-Hostler</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Chloe Robberts-Mosser"> <span>Chloe Robberts-Mosser</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Citlali Rundall Madrigal"> <span>Citlali Rundall Madrigal</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Ella Ylagan"> <span>Ella Ylagan</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Emmie Vargas"> <span>Emmie Vargas</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Eve Anderson"> <span>Eve Anderson</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Helen Fu"> <span>Helen Fu</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Ian Pan"> <span>Ian Pan</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Jaewoo Park"> <span>Jaewoo Park</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Jason Yan"> <span>Jason Yan</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Julia Smith"> <span>Julia Smith</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Kyler Abdelzaher"> <span>Kyler Abdelzaher</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Lana Cooper"> <span>Lana Cooper</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Olly Earls"> <span>Olly Earls</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Praachi Mudar"> <span>Praachi Mudar</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Renee Wang"> <span>Renee Wang</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Saif Shakir"> <span>Saif Shakir</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Sandaru Devmal"> <span>Sandaru Devmal</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Simrah Khan"> <span>Simrah Khan</span></label>
-        <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Will Miller"> <span>Will Miller</span></label>
-      </div>
     </div>
 
     <div class="text-center mt-8">
@@ -200,6 +136,12 @@ button:hover { box-shadow: 0 0 15px #d4af37; }
   </form>
 
   <p id="error" class="text-red-600 mt-4 hidden text-center">You may only select up to 2 per category.</p>
+</div>
+
+<!-- ENVELOPE BELOW -->
+<div id="envelope" class="envelope relative">
+  <div class="flap"></div>
+  <div id="seal" class="seal"></div>
 </div>
 
 <script>
@@ -215,24 +157,6 @@ seal.addEventListener('click', () => {
     letter.classList.add('show-letter');
   }, 700);
 });
-
-// HARD LIMIT CHECK (max 2)
-function limitCheckboxes(className) {
-  const boxes = document.querySelectorAll('.' + className);
-  boxes.forEach(box => {
-    box.addEventListener('change', () => {
-      const checked = document.querySelectorAll('.' + className + ':checked');
-      if (checked.length > 2) {
-        box.checked = false;
-        document.getElementById('error').classList.remove('hidden');
-      }
-    });
-  });
-}
-
-limitCheckboxes('junior');
-limitCheckboxes('senior');
-
 </script>
 
 </body>
