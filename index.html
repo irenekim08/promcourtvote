@@ -12,11 +12,15 @@
 
 body {
   font-family: 'Playfair Display', serif;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
   color: #f5e6c8;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+
+  /* FIXED, full-screen gradient */
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .gold { color: #d4af37; }
@@ -141,7 +145,7 @@ button:hover {
 </head>
 
 <body>
-
+  
 <div id="envelope" class="envelope relative">
   <div class="flap"></div>
   <div id="seal" class="seal"></div>
@@ -223,7 +227,7 @@ button:hover {
 
     <div class="text-center mt-8">
       <button type="submit" class="px-6 py-2 bg-black text-white rounded-full border border-yellow-500">
-        Seal & Send ✉️
+        Seal ✉️
       </button>
     </div>
   </form>
