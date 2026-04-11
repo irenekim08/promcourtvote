@@ -21,7 +21,6 @@ body {
 
 .gold { color: #d4af37; }
 
-/* ENVELOPE */
 .envelope {
   width: 80vw;
   max-width: 320px;
@@ -34,7 +33,6 @@ body {
   margin: 2rem auto;
 }
 
-/* FLAP */
 .flap {
   position: absolute;
   top: 0;
@@ -49,7 +47,6 @@ body {
 
 .open .flap { transform: rotateX(180deg); }
 
-/* SEAL */
 .seal {
   width: 15vw;
   max-width: 60px;
@@ -81,7 +78,6 @@ body {
   transform: translate(-50%, -50%) scale(1.2);
 }
 
-/* CRACK */
 .crack { animation: crack 0.5s forwards; }
 
 @keyframes crack {
@@ -89,7 +85,6 @@ body {
   100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
 }
 
-/* LETTER */
 .letter {
   background: #fdf6e3;
   color: #1a1a1a;
@@ -112,7 +107,6 @@ body {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* INPUTS */
 input, button { font-size: 4vw; }
 
 input[type="text"] {
@@ -122,13 +116,16 @@ input[type="text"] {
   padding: 1vw 0;
 }
 
-/* Checkbox styling */
 label input[type="checkbox"] {
   transform: scale(1.2);
 }
 
-button {
-  padding: 2vw 4vw;
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+  cursor: pointer;
 }
 
 button:hover {
@@ -153,8 +150,7 @@ button:hover {
 <div id="letter" class="letter">
   <h1 class="text-3xl mb-4 gold text-center">An Invitation to Vote</h1>
 
-  <form id="voteForm"
-    action="https://docs.google.com/forms/d/e/1FAIpQLScExsky7uQSMPfgYknKsKbwNzPp2uGIiPo8frwwQx0FDUC7hQ/formResponse">
+  <form id="voteForm" action="https://docs.google.com/forms/d/e/1FAIpQLScExsky7uQSMPfgYknKsKbwNzPp2uGIiPo8frwwQx0FDUC7hQ/formResponse">
 
     <div class="mb-6">
       <label>Name:</label>
@@ -164,19 +160,65 @@ button:hover {
     <div class="mb-6">
       <label>Junior Prom Court (max 2):</label>
 
-      <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Adrian Schneider"><span>Adrian Schneider</span></label>
-      <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Ana Artz"><span>Ana Artz</span></label>
-      <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Alana Santiago"><span>Alana Santiago</span></label>
-      <label class="flex items-center gap-2"><input type="checkbox" class="junior" name="entry.1881069584" value="Amari Dixon"><span>Amari Dixon</span></label>
-      <!-- keep repeating same pattern for all -->
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Adrian Schneider"><span>Adrian Schneider</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Ana Artz"><span>Ana Artz</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Alana Santiago"><span>Alana Santiago</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Amari Dixon"><span>Amari Dixon</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Cadence Scheunemann"><span>Cadence Scheunemann</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Charlotte Lin"><span>Charlotte Lin</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Ellie Rosch"><span>Ellie Rosch</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Finn Niesen-Davis"><span>Finn Niesen-Davis</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Harmony Lehman"><span>Harmony Lehman</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Henry Guan"><span>Henry Guan</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Irene Kim"><span>Irene Kim</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Kabir Thirodira"><span>Kabir Thirodira</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Lily Rowell"><span>Lily Rowell</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Lucas Tosi"><span>Lucas Tosi</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Matthew Davidson"><span>Matthew Davidson</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Penelope Renie"><span>Penelope Renie</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Robenas Tadesse"><span>Robenas Tadesse</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Ruby Ballesteros"><span>Ruby Ballesteros</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Ruijing Tang"><span>Ruijing Tang</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Sarah Bolton"><span>Sarah Bolton</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Shanna Nayely Duay"><span>Shanna Nayely Duay</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Shreya Haran"><span>Shreya Haran</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Sophie La Nave"><span>Sophie La Nave</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Yixin Jemina Feng"><span>Yixin Jemina Feng</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Yuto Inoue"><span>Yuto Inoue</span></label>
+      <label><input type="checkbox" class="junior" name="entry.1881069584" value="Zoe Parker"><span>Zoe Parker</span></label>
     </div>
 
     <div class="mb-6">
       <label>Senior Prom Court (max 2):</label>
 
-      <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Adam Bobat"><span>Adam Bobat</span></label>
-      <label class="flex items-center gap-2"><input type="checkbox" class="senior" name="entry.1457775683" value="Aldo Zepeda Flores"><span>Aldo Zepeda Flores</span></label>
-      <!-- repeat -->
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Adam Bobat"><span>Adam Bobat</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Aldo Zepeda Flores"><span>Aldo Zepeda Flores</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Alyssa Neubauer"><span>Alyssa Neubauer</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Annika Deschler"><span>Annika Deschler</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Ashton Ribeiro Hetherington"><span>Ashton Ribeiro Hetherington</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Cali Cooper"><span>Cali Cooper</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Carla Lopez"><span>Carla Lopez</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Chizara Onyemere"><span>Chizara Onyemere</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Chloe Noronha-Hostler"><span>Chloe Noronha-Hostler</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Chloe Robberts-Mosser"><span>Chloe Robberts-Mosser</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Citlali Rundall Madrigal"><span>Citlali Rundall Madrigal</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Ella Ylagan"><span>Ella Ylagan</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Emmie Vargas"><span>Emmie Vargas</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Eve Anderson"><span>Eve Anderson</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Helen Fu"><span>Helen Fu</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Ian Pan"><span>Ian Pan</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Jaewoo Park"><span>Jaewoo Park</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Jason Yan"><span>Jason Yan</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Julia Smith"><span>Julia Smith</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Kyler Abdelzaher"><span>Kyler Abdelzaher</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Lana Cooper"><span>Lana Cooper</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Olly Earls"><span>Olly Earls</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Praachi Mudar"><span>Praachi Mudar</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Renee Wang"><span>Renee Wang</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Saif Shakir"><span>Saif Shakir</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Sandaru Devmal"><span>Sandaru Devmal</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Simrah Khan"><span>Simrah Khan</span></label>
+      <label><input type="checkbox" class="senior" name="entry.1457775683" value="Will Miller"><span>Will Miller</span></label>
     </div>
 
     <div class="text-center mt-8">
